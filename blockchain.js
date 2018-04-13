@@ -9,7 +9,7 @@ class Blockchain {
 
   addBlock(block) {
     if(this.blocks.length == 0) {
-      block.previousHash = "0000000000000000" //there is no previous hash
+      block.previousHash = "0000000000000000" // there is no previous hash
       block.hash = this.generateHash(block) // based on the block key it will generate a hash
     }
 
@@ -23,7 +23,7 @@ class Blockchain {
       block.addTransaction(transaction)
     })
 
-    let previousBlock = this.getPreviousBlock() // serious perfomance issue here is blocks are big. ONLY REQUEST HASH
+    let previousBlock = this.getPreviousBlock() // serious perfomance issue here if blocks are big. ONLY REQUEST HASH
 
     block.index = this.blocks.length
     block.previousHash = previousBlock.hash
@@ -43,7 +43,7 @@ class Blockchain {
     while(!hash.startsWith("0")){ // now you need computational power to find one. in an actual blockchain you would work with maybe 15 0's
       block.nonce += 1
       hash = sha256(block.key)
-      //console.log(hash)
+      console.log(hash)
     }
 
     return hash
