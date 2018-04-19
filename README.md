@@ -26,6 +26,53 @@ node app.js
 
 Express.js is implemented to handle server requests. The server is able to receive JSON objects.
 
+### Post
+
+#### /nodes/register
+
+Register nodes to the network, for example:
+
+```
+{
+	"urls": [{
+			"url":"http://localhost:3000"
+		},
+		{
+			"url":"http://localhost:3001"
+		}]
+}
+```
+
+#### /transactions
+
+Make a transaction, for example:
+
+```
+{
+	"from":"Name A",
+	"to":"Name B",
+	"amount":5
+}
+```
+
+### Get
+
+#### /
+
+Root hello world.
+
+#### /nodes
+
+Return connected nodes (servers)
+
+#### /mine
+
+Create (mine) a new block with transactions and add to the blockchain.
+
+#### /blockchain
+
+Return the entire blockchain.
+
 ## Built With
 
 * [Node](https://nodejs.org/en/download/) - JavaScript runtime environment
@@ -38,3 +85,8 @@ Express.js is implemented to handle server requests. The server is able to recei
 ## Acknowledgments
 
 * Thanks Mohammad Azam for the great [course](https://www.udemy.com/blockchain-programming-using-javascript/)
+
+## Weaknesses
+
+* Use sockets to communicate with all the different nodes
+* Transactions should take unique id (public key)
